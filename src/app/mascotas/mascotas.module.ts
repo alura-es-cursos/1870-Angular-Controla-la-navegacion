@@ -8,7 +8,11 @@ import { CardModule } from '../components/card/card.module';
 import { GridMascotasComponent } from './grid-mascotas/grid-mascotas.component';
 
 @NgModule({
-  declarations: [ListaMascotasComponent, MascotaComponent, GridMascotasComponent],
+  declarations: [
+    ListaMascotasComponent,
+    MascotaComponent,
+    GridMascotasComponent,
+  ],
   imports: [CommonModule, MascotasRoutingModule, CardModule],
 })
 export class MascotasModule {}
