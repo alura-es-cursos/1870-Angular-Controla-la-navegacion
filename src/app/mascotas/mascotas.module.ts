@@ -6,12 +6,14 @@ import { ListaMascotasComponent } from './lista-mascotas/lista-mascotas.componen
 import { MascotaComponent } from './mascota/mascota.component';
 import { CardModule } from '../components/card/card.module';
 import { GridMascotasComponent } from './grid-mascotas/grid-mascotas.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 @NgModule({
   declarations: [
     ListaMascotasComponent,
     MascotaComponent,
     GridMascotasComponent,
+    DetalleComponent,
   ],
   imports: [CommonModule, MascotasRoutingModule, CardModule],
 })
