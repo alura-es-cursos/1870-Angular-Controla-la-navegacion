@@ -19,6 +19,13 @@
           (click)="eliminar()"
           class="fa fa-trash-o fa-2x pull-right pointer trash"
         ></i>
+        <app-comentarios
+          [id]="mascota.id"
+          *ngIf="mascota.allowComments; else warning"
+        ></app-comentarios>
+        <ng-template #warning>
+          <p class="text-center mt-5">Usuario no puede comentar la imagen</p>
+        </ng-template>
       </div>
     </div>
   </div>

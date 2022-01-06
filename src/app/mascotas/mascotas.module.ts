@@ -7,6 +7,8 @@ import { MascotaComponent } from './mascota/mascota.component';
 import { CardModule } from '../components/card/card.module';
 import { GridMascotasComponent } from './grid-mascotas/grid-mascotas.component';
 import { DetalleComponent } from './detalle/detalle.component';
+import { ComentariosComponent } from './detalle/comentarios/comentarios.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { DetalleComponent } from './detalle/detalle.component';
     MascotaComponent,
     GridMascotasComponent,
     DetalleComponent,
+    ComentariosComponent,
   ],
-  imports: [CommonModule, MascotasRoutingModule, CardModule],
+  imports: [CommonModule, MascotasRoutingModule, CardModule, SharedModule],
 })
 export class MascotasModule {}

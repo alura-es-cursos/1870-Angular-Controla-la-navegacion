@@ -3,6 +3,7 @@ import { UserService } from '../../auth/user/user.service';
 import { MascotasService } from '../mascotas.service';
 import { Mascotas } from '../mascota';
 import { switchMap, Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lista-mascotas',
@@ -10,11 +11,12 @@ import { switchMap, Observable } from 'rxjs';
   styleUrls: ['./lista-mascotas.component.css'],
 })
 export class ListaMascotasComponent implements OnInit {
-  mascotas$!: Observable<Mascotas>;
+  mascotas!: Mascotas;
 
   constructor(
     private userService: UserService,
-    private mascotasService: MascotasService
+    private mascotasService: MascotasService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -26,11 +28,15 @@ export class ListaMascotasComponent implements OnInit {
     //   });
     // });
 
-    this.mascotas$ = this.userService.returnUsuario().pipe(
-      switchMap((usuario) => {
-        const userName = usuario.name ?? '';
-        return this.mascotasService.listaDeUsuario(userName);
-      })
-    );
+    // this.mascotas$ = this.userService.returnUsuario().pipe(
+    //   switchMap((usuario) => {
+    //     const userName = usuario.name ?? '';
+    //     return this.mascotasService.listaDeUsuario(userName);
+    //   })
+    // );
+
+    this.activatedRoute.params.subscribe((params) => {
+      this.mascotas = this.activatedRoute.snapshot.data['mascotas'];
+    });
   }
 }
